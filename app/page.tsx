@@ -212,8 +212,10 @@ export default function ShooterGame() {
 
   const shareRank = async () => {
     const text = rank ? `I\'m rank #${rank} with score ${score} in Battle Game!` : `My score is ${score} in Battle Game!`
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://pixel-6i89.vercel.app'
+    const url = `${origin}/?score=${encodeURIComponent(String(score))}${rank ? `&rank=${encodeURIComponent(String(rank))}` : ''}&name=${encodeURIComponent(playerName)}`
     try {
-      await (sdk as any)?.actions?.composeCast?.({ text })
+      await (sdk as any)?.actions?.composeCast?.({ text: `${text} ${url}` })
     } catch (e) {
       console.warn('Share failed:', e)
     }
