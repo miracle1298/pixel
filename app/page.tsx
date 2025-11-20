@@ -100,6 +100,8 @@ export default function ShooterGame() {
 
   const width = 900
   const height = 600
+  const [viewW, setViewW] = useState<number>(width)
+  const [viewH, setViewH] = useState<number>(height)
   const COINS_COLS = 8
   const COINS_ROWS = 4
 
@@ -114,6 +116,37 @@ export default function ShooterGame() {
       }
     }
     init()
+  }, [])
+
+  useEffect(() => {
+    const calc = () => {
+      const vw = typeof window !== 'undefined' ? window.innerWidth : width
+      const vh = typeof window !== 'undefined' ? window.innerHeight : height
+      const aspect = width / height
+      const cur = vw / vh
+      if (cur > aspect) {
+        const h = vh
+        const w = Math.floor(h * aspect)
+        setViewW(w)
+        setViewH(h)
+      } else {
+        const w = vw
+        const h = Math.floor(w / aspect)
+        setViewW(w)
+        setViewH(h)
+      }
+    }
+    calc()
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', calc)
+      window.addEventListener('orientationchange', calc)
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', calc)
+        window.removeEventListener('orientationchange', calc)
+      }
+    }
   }, [])
 
   useEffect(() => {
@@ -609,7 +642,8 @@ export default function ShooterGame() {
 
   return (
     <div style={styles.container}>
-      <div style={{ ...styles.screen, position: 'relative' }}>
+      <div style={{ ...styles.screen }}>
+        <div style={{ ...styles.gameArea, width: viewW, height: viewH }}>
         <canvas
           ref={canvasRef}
           width={width}
@@ -617,8 +651,10 @@ export default function ShooterGame() {
           style={{ ...styles.canvas, touchAction: 'none' }}
           onMouseMove={e => {
             const rect = (e.target as HTMLCanvasElement).getBoundingClientRect()
-            mouseAimRef.current.x = e.clientX - rect.left
-            mouseAimRef.current.y = e.clientY - rect.top
+            const sx = width / rect.width
+            const sy = height / rect.height
+            mouseAimRef.current.x = (e.clientX - rect.left) * sx
+            mouseAimRef.current.y = (e.clientY - rect.top) * sy
           }}
           onMouseDown={() => { mouseAimRef.current.active = true }}
           onMouseUp={() => { mouseAimRef.current.active = false }}
@@ -712,6 +748,7 @@ export default function ShooterGame() {
           <div style={{ ...styles.joyKnob, width: isTouch ? 52 : 44, height: isTouch ? 52 : 44, transform: `translate(${joyRightRef.current.dx}px, ${joyRightRef.current.dy}px)` }} />
         </div>
         )}
+        </div>
       </div>
     </div>
   )
@@ -736,6 +773,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  gameArea: {
+    position: 'relative',
+    margin: '0 auto',
+  },
   title: {
     fontSize: '2rem',
     fontWeight: 'bold',
@@ -746,9 +787,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     opacity: 0.85,
   },
   canvas: {
-    height: '100vh',
-    width: 'auto',
-    aspectRatio: '3 / 2',
+    width: '100%',
+    height: '100%',
     borderRadius: 0,
     backgroundColor: '#0f0f0f',
     display: 'block',
