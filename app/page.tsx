@@ -215,7 +215,12 @@ export default function ShooterGame() {
     const origin = typeof window !== 'undefined' ? window.location.origin : 'https://pixel-6i89.vercel.app'
     const url = `${origin}/?score=${encodeURIComponent(String(score))}${rank ? `&rank=${encodeURIComponent(String(rank))}` : ''}&name=${encodeURIComponent(playerName)}`
     try {
-      await (sdk as any)?.actions?.composeCast?.({ text: `${text} ${url}`, embeds: [{ url }] })
+      const u = await (sdk as any)?.context?.getFarcasterUser?.()
+      if (u?.fid) {
+        await (sdk as any)?.actions?.composeCast?.({ text: `${text} ${url}`, embeds: [{ url }] })
+        return
+      }
+      throw new Error('no_fid')
     } catch (e) {
       console.warn('Share failed:', e)
       const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(`${text} ${url}`)}&embeds[]=${encodeURIComponent(url)}`
