@@ -2,13 +2,13 @@
   "frame": {
     "name": "pixel shooter",
     "homeUrl": "https://pixel-6i89.vercel.app",
-    "iconUrl": "https://pixel-6i89.vercel.app/icon.png",
+    "iconUrl": "https://pixel-6i89.vercel.app/api/icon",
     "version": "1",
-    "imageUrl": "https://pixel-6i89.vercel.app/image.png",
+    "imageUrl": "https://pixel-6i89.vercel.app/api/embed-image",
     "subtitle": "pixel shooting  game ",
     "webhookUrl": "https://pixel-6i89.vercel.app/api/webhook",
     "description": "pixel shooting just for fun",
-    "splashImageUrl": "https://pixel-6i89.vercel.app/splash.png",
+    "splashImageUrl": "https://pixel-6i89.vercel.app/api/splash",
     "primaryCategory": "games",
     "splashBackgroundColor": "#1a1a1a"
   },

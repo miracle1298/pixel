@@ -35,6 +35,24 @@ export async function GET(req: Request) {
     </div>
   )
 
+  const unit = 24
+  const gx = WIDTH / 2 - unit * 6
+  const gy = HEIGHT / 2 - unit * 4
+  const px: any[] = []
+  const add = (x: number, y: number, w: number, h: number, c: string) => {
+    px.push(<div style={{ position: 'absolute', left: gx + x * unit, top: gy + y * unit, width: w * unit, height: h * unit, background: c, borderRadius: 6 }} />)
+  }
+  add(0, 0, 12, 1, '#000000')
+  add(0, 1, 1, 6, '#000000')
+  add(11, 1, 1, 6, '#000000')
+  add(1, 7, 1, 2, '#000000')
+  add(10, 7, 1, 2, '#000000')
+  add(2, 9, 8, 1, '#000000')
+  add(1, 1, 10, 6, '#ffffff')
+  add(3, 3, 2, 2, '#000000')
+  add(7, 3, 2, 2, '#000000')
+  add(2, 7, 8, 2, '#ffffff')
+
   return new ImageResponse(
     (
       <div
@@ -52,6 +70,7 @@ export async function GET(req: Request) {
         }}
       >
         {stars}
+        {px}
         <div
           style={{
             fontSize: 64,
