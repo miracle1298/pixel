@@ -122,19 +122,9 @@ export default function ShooterGame() {
     const calc = () => {
       const vw = typeof window !== 'undefined' ? window.innerWidth : width
       const vh = typeof window !== 'undefined' ? window.innerHeight : height
-      const aspect = width / height
-      const cur = vw / vh
-      if (cur > aspect) {
-        const h = vh
-        const w = Math.floor(h * aspect)
-        setViewW(w)
-        setViewH(h)
-      } else {
-        const w = vw
-        const h = Math.floor(w / aspect)
-        setViewW(w)
-        setViewH(h)
-      }
+      const scale = Math.max(vw / width, vh / height)
+      setViewW(Math.floor(width * scale))
+      setViewH(Math.floor(height * scale))
     }
     calc()
     if (typeof window !== 'undefined') {
@@ -772,6 +762,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   gameArea: {
     position: 'relative',
