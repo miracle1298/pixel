@@ -2,11 +2,11 @@
   "miniapp": {
     "version": "1",
     "name": "Battle Game",
-    "iconUrl": "http://localhost:3000/api/icon",
-    "homeUrl": "http://localhost:3000",
-    "splashImageUrl": "http://localhost:3000/api/splash",
+    "iconUrl": "https://pixel-6i89.vercel.app/api/icon",
+    "homeUrl": "https://pixel-6i89.vercel.app",
+    "splashImageUrl": "https://pixel-6i89.vercel.app/api/splash",
     "splashBackgroundColor": "#1a1a1a",
-    "heroImageUrl": "http://localhost:3000/api/hero",
+    "heroImageUrl": "https://pixel-6i89.vercel.app/api/hero",
     "tagline": "Engage in an epic turn-based battle!"
   }
 }
