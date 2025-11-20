@@ -18,18 +18,40 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const miniapp = {
+    version: '1',
+    imageUrl: 'https://pixel-6i89.vercel.app/api/embed-image',
+    button: {
+      title: 'Start Game',
+      action: {
+        type: 'launch_miniapp',
+        name: 'pixel shooter',
+        url: 'https://pixel-6i89.vercel.app',
+        splashImageUrl: 'https://pixel-6i89.vercel.app/api/splash',
+        splashBackgroundColor: '#1a1a1a',
+      },
+    },
+  }
+  const frame = {
+    version: '1',
+    imageUrl: 'https://pixel-6i89.vercel.app/api/embed-image',
+    button: {
+      title: 'Start Game',
+      action: {
+        type: 'launch_frame',
+        name: 'pixel shooter',
+        url: 'https://pixel-6i89.vercel.app',
+        splashImageUrl: 'https://pixel-6i89.vercel.app/api/splash',
+        splashBackgroundColor: '#1a1a1a',
+      },
+    },
+  }
   return (
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <meta
-          name="fc:miniapp"
-          content='{"version":"1","imageUrl":"https://pixel-6i89.vercel.app/api/embed-image","button":{"title":"Start Game","action":{"type":"launch_miniapp","name":"pixel shooter","url":"https://pixel-6i89.vercel.app","splashImageUrl":"https://pixel-6i89.vercel.app/api/splash","splashBackgroundColor":"#1a1a1a"}}}'
-        />
-        <meta
-          name="fc:frame"
-          content='{"version":"1","imageUrl":"https://pixel-6i89.vercel.app/api/embed-image","button":{"title":"Start Game","action":{"type":"launch_frame","name":"pixel shooter","url":"https://pixel-6i89.vercel.app","splashImageUrl":"https://pixel-6i89.vercel.app/api/splash","splashBackgroundColor":"#1a1a1a"}}}'
-        />
+        <meta name="fc:miniapp" content={JSON.stringify(miniapp)} />
+        <meta name="fc:frame" content={JSON.stringify(frame)} />
         {/* Suppress console messages immediately, before anything else loads */}
         <script
           dangerouslySetInnerHTML={{
