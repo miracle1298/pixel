@@ -49,3 +49,7 @@ export async function GET() {
     { width: W, height: H }
   )
 }
+
+export async function HEAD() {
+  return new Response(null, { headers: { 'content-type': 'image/png', 'cache-control': 'max-age=0' } })
+}
