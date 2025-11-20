@@ -215,7 +215,7 @@ export default function ShooterGame() {
     const origin = typeof window !== 'undefined' ? window.location.origin : 'https://pixel-6i89.vercel.app'
     const url = `${origin}/?score=${encodeURIComponent(String(score))}${rank ? `&rank=${encodeURIComponent(String(rank))}` : ''}&name=${encodeURIComponent(playerName)}`
     try {
-      await (sdk as any)?.actions?.composeCast?.({ text: `${text} ${url}` })
+      await (sdk as any)?.actions?.composeCast?.({ text: text, embeds: [{ url }] })
     } catch (e) {
       console.warn('Share failed:', e)
     }

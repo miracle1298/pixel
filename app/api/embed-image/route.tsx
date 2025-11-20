@@ -2,8 +2,8 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-const WIDTH = 900
-const HEIGHT = 600
+const WIDTH = 1200
+const HEIGHT = 800
 
 export async function GET(req: Request) {
   const url = new URL(req.url)
@@ -87,8 +87,4 @@ export async function GET(req: Request) {
     ),
     { width: WIDTH, height: HEIGHT }
   )
-}
-
-export async function HEAD(req: Request) {
-  return new Response(null, { headers: { 'content-type': 'image/png', 'cache-control': 'max-age=0' } })
 }

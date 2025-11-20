@@ -24,11 +24,11 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <meta
           name="fc:miniapp"
-          content='{"version":"1","imageUrl":"https://pixel-6i89.vercel.app/api/embed-image","button":{"title":"Start Game","action":{"type":"launch_miniapp","url":"https://pixel-6i89.vercel.app","splashImageUrl":"https://pixel-6i89.vercel.app/api/splash","splashBackgroundColor":"#1a1a1a"}}}'
+          content='{"version":"1","imageUrl":"https://pixel-6i89.vercel.app/api/embed-image","button":{"title":"Start Game","action":{"type":"launch_miniapp","name":"pixel shooter","url":"https://pixel-6i89.vercel.app","splashImageUrl":"https://pixel-6i89.vercel.app/api/splash","splashBackgroundColor":"#1a1a1a"}}}'
         />
         <meta
           name="fc:frame"
-          content='{"version":"1","imageUrl":"https://pixel-6i89.vercel.app/api/embed-image","button":{"title":"Start Game","action":{"type":"launch_frame","url":"https://pixel-6i89.vercel.app","splashImageUrl":"https://pixel-6i89.vercel.app/api/splash","splashBackgroundColor":"#1a1a1a"}}}'
+          content='{"version":"1","imageUrl":"https://pixel-6i89.vercel.app/api/embed-image","button":{"title":"Start Game","action":{"type":"launch_frame","name":"pixel shooter","url":"https://pixel-6i89.vercel.app","splashImageUrl":"https://pixel-6i89.vercel.app/api/splash","splashBackgroundColor":"#1a1a1a"}}}'
         />
         {/* Suppress console messages immediately, before anything else loads */}
         <script
