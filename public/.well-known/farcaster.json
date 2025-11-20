@@ -8,6 +8,24 @@
     "splashBackgroundColor": "#1a1a1a",
     "heroImageUrl": "https://pixel-6i89.vercel.app/api/hero",
     "tagline": "Engage in an epic turn-based battle!"
+  },
+  "frame": {
+    "version": "1",
+    "name": "pixel shooter",
+    "iconUrl": "https://pixel-6i89.vercel.app/api/icon",
+    "homeUrl": "https://pixel-6i89.vercel.app",
+    "imageUrl": "https://pixel-6i89.vercel.app/api/embed-image",
+    "splashImageUrl": "https://pixel-6i89.vercel.app/api/splash",
+    "splashBackgroundColor": "#1a1a1a",
+    "webhookUrl": "https://pixel-6i89.vercel.app/api/webhook",
+    "subtitle": "pixel shooting game",
+    "description": "pixel shooting just for fun",
+    "primaryCategory": "games"
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjIzMjc5OCwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGRkNmJFYUVGYTg1NjQ4NWY5RkRkNGM5NjljYjEyNmI1RjUyNWZEMTEifQ",
+    "payload": "eyJkb21haW4iOiJwaXhlbC02aTg5LnZlcmNlbC5hcHAifQ",
+    "signature": "NQBSOKgMAqyNxl7F8SbWzxBzrnJCh/dC4swe/yuDMd8MDO4b3m9GYAEqD8/roornyxZ0XXF6xS62ao/HLL+SdRs="
   }
 }
 
