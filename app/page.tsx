@@ -218,6 +218,17 @@ export default function ShooterGame() {
       await (sdk as any)?.actions?.composeCast?.({ text: `${text} ${url}`, embeds: [{ url }] })
     } catch (e) {
       console.warn('Share failed:', e)
+      const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(`${text} ${url}`)}&embeds[]=${encodeURIComponent(url)}`
+      if (typeof window !== 'undefined') {
+        try {
+          window.open(warpcastUrl, '_blank')
+        } catch {}
+        if ((navigator as any)?.share) {
+          try {
+            await (navigator as any).share({ text: `${text} ${url}` })
+          } catch {}
+        }
+      }
     }
   }
 
