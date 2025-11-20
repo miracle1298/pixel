@@ -98,7 +98,7 @@ export default function ShooterGame() {
     spawnMsRef.current = Math.max(350, 1200 - (lvl - 1) * 60)
   }
 
-  const width = 900
+  const width = 800
   const height = 600
   const COINS_COLS = 8
   const COINS_ROWS = 4
@@ -733,7 +733,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: '1rem',
   },
   screen: {
-    maxWidth: '900px',
+    maxWidth: '800px',
     width: '100%',
     textAlign: 'center',
   },
