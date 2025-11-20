@@ -106,7 +106,7 @@ export default function ShooterGame() {
   useEffect(() => {
     const init = async () => {
       try {
-        await sdk.actions.ready(true)
+        await sdk.actions.ready({ disableNativeGestures: true })
         setSdkReady(true)
       } catch (err) {
         setSdkReady(true)
