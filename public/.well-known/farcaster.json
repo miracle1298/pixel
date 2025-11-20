@@ -7,7 +7,7 @@
     "splashImageUrl": "https://pixel-6i89.vercel.app/api/splash",
     "splashBackgroundColor": "#1a1a1a",
     "heroImageUrl": "https://pixel-6i89.vercel.app/api/hero",
-    "tagline": "Engage in an epic turn-based battle!"
+    "tagline": "Epic turn-based shooter"
   },
   "frame": {
     "version": "1",
