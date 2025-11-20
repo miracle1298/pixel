@@ -1,26 +1,16 @@
 {
-  "miniapp": {
-    "version": "1",
-    "name": "Battle Game",
-    "iconUrl": "https://pixel-6i89.vercel.app/api/icon",
-    "homeUrl": "https://pixel-6i89.vercel.app",
-    "splashImageUrl": "https://pixel-6i89.vercel.app/api/splash",
-    "splashBackgroundColor": "#1a1a1a",
-    "heroImageUrl": "https://pixel-6i89.vercel.app/api/hero",
-    "tagline": "Epic turn-based shooter"
-  },
   "frame": {
-    "version": "1",
     "name": "pixel shooter",
-    "iconUrl": "https://pixel-6i89.vercel.app/api/icon",
     "homeUrl": "https://pixel-6i89.vercel.app",
-    "imageUrl": "https://pixel-6i89.vercel.app/api/embed-image",
-    "splashImageUrl": "https://pixel-6i89.vercel.app/api/splash",
-    "splashBackgroundColor": "#1a1a1a",
+    "iconUrl": "https://pixel-6i89.vercel.app/icon.png",
+    "version": "1",
+    "imageUrl": "https://pixel-6i89.vercel.app/image.png",
+    "subtitle": "pixel shooting  game ",
     "webhookUrl": "https://pixel-6i89.vercel.app/api/webhook",
-    "subtitle": "pixel shooting game",
     "description": "pixel shooting just for fun",
-    "primaryCategory": "games"
+    "splashImageUrl": "https://pixel-6i89.vercel.app/splash.png",
+    "primaryCategory": "games",
+    "splashBackgroundColor": "#1a1a1a"
   },
   "accountAssociation": {
     "header": "eyJmaWQiOjIzMjc5OCwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGRkNmJFYUVGYTg1NjQ4NWY5RkRkNGM5NjljYjEyNmI1RjUyNWZEMTEifQ",
