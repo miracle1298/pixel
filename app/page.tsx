@@ -100,8 +100,6 @@ export default function ShooterGame() {
 
   const width = 900
   const height = 600
-  const [viewW, setViewW] = useState<number>(width)
-  const [viewH, setViewH] = useState<number>(height)
   const COINS_COLS = 8
   const COINS_ROWS = 4
 
@@ -118,26 +116,7 @@ export default function ShooterGame() {
     init()
   }, [])
 
-  useEffect(() => {
-    const calc = () => {
-      const vw = typeof window !== 'undefined' ? window.innerWidth : width
-      const vh = typeof window !== 'undefined' ? window.innerHeight : height
-      const scale = Math.max(vw / width, vh / height)
-      setViewW(Math.floor(width * scale))
-      setViewH(Math.floor(height * scale))
-    }
-    calc()
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', calc)
-      window.addEventListener('orientationchange', calc)
-    }
-    return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', calc)
-        window.removeEventListener('orientationchange', calc)
-      }
-    }
-  }, [])
+  
 
   useEffect(() => {
     const loadName = async () => {
@@ -632,8 +611,7 @@ export default function ShooterGame() {
 
   return (
     <div style={styles.container}>
-      <div style={{ ...styles.screen }}>
-        <div style={{ ...styles.gameArea, width: viewW, height: viewH }}>
+      <div style={{ ...styles.screen, position: 'relative' }}>
         <canvas
           ref={canvasRef}
           width={width}
@@ -738,7 +716,6 @@ export default function ShooterGame() {
           <div style={{ ...styles.joyKnob, width: isTouch ? 52 : 44, height: isTouch ? 52 : 44, transform: `translate(${joyRightRef.current.dx}px, ${joyRightRef.current.dy}px)` }} />
         </div>
         )}
-        </div>
       </div>
     </div>
   )
@@ -748,25 +725,17 @@ const styles: { [key: string]: React.CSSProperties } = {
   container: {
     minHeight: '100vh',
     display: 'flex',
-    alignItems: 'stretch',
-    justifyContent: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#1a1a1a',
     color: '#ffffff',
     fontFamily: 'Arial, sans-serif',
-    padding: 0,
+    padding: '1rem',
   },
   screen: {
+    maxWidth: '900px',
     width: '100%',
-    height: '100vh',
     textAlign: 'center',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  gameArea: {
-    position: 'relative',
-    margin: '0 auto',
   },
   title: {
     fontSize: '2rem',
@@ -779,8 +748,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   canvas: {
     width: '100%',
-    height: '100%',
-    borderRadius: 0,
+    height: 'auto',
+    borderRadius: '8px',
     backgroundColor: '#0f0f0f',
     display: 'block',
   },
