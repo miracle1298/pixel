@@ -721,16 +721,16 @@ const styles: { [key: string]: React.CSSProperties } = {
   container: {
     minHeight: '100vh',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
     backgroundColor: '#1a1a1a',
     color: '#ffffff',
     fontFamily: 'Arial, sans-serif',
-    padding: '1rem',
+    padding: 0,
   },
   screen: {
-    maxWidth: '800px',
     width: '100%',
+    height: '100vh',
     textAlign: 'center',
   },
   title: {
@@ -744,9 +744,10 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   canvas: {
     width: '100%',
-    height: 'auto',
-    borderRadius: '8px',
+    height: '100%',
+    borderRadius: 0,
     backgroundColor: '#0f0f0f',
+    display: 'block',
   },
   topHud: {
     position: 'absolute',
